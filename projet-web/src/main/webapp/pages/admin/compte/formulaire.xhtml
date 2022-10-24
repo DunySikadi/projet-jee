@@ -39,6 +39,36 @@
 			</tr>
 			<tr>
 				<td>
+					<h:outputLabel for="prenom">Prenom :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="prenom" size="25" 
+						value="#{modelCompte.courant.prenom}" />
+					<br /><h:message for="prenom" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="nom">Nom :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="nom" size="25" 
+						value="#{modelCompte.courant.nom}" />
+					<br /><h:message for="nom" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="credit">Credit :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="credit" size="25" 
+						value="#{modelCompte.courant.credit}" />
+					<br /><h:message for="credit" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<h:outputLabel for="motDePasse">Mot de passe :</h:outputLabel>				
 				</td>
 				<td>
