@@ -7,52 +7,88 @@ import java.util.Objects;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
-public class Compte implements Serializable  {
+public class Compte implements Serializable {
 
-	
 	// Champs
-	
-	Integer		id;
-	
-	@NotBlank( message = "Le pseudo doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le pseuo : 25 car. maxi" )
-	private String		pseudo;
 
-	@NotBlank( message = "Le mot de passe doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le mot de passe : 25 car. maxi" )
-	private String		motDePasse;
+	Integer id;
 
-	@NotBlank( message = "L'adresse e-mail doit être renseigné")
-	@Size(max=100, message = "Valeur trop longue pour l'adresse e-mail : 100 car. maxi" )
-	@Email( message = "Adresse e-mail invalide" )
-	private String		email;
-	
-	private List<String> roles = new ArrayList<>();	
+	@NotBlank(message = "Le pseudo doit être renseigné")
+	@Size(max = 25, message = "Valeur trop longue pour le pseuo : 25 car. maxi")
+	private String pseudo;
 
-	
+	@NotBlank(message = "Le mot de passe doit être renseigné")
+	@Size(max = 25, message = "Valeur trop longue pour le mot de passe : 25 car. maxi")
+	private String motDePasse;
+
+	@NotBlank(message = "L'adresse e-mail doit être renseigné")
+	@Size(max = 100, message = "Valeur trop longue pour l'adresse e-mail : 100 car. maxi")
+	@Email(message = "Adresse e-mail invalide")
+	private String email;
+
+	@NotBlank(message = "Le prenom doit être renseigné")
+	@Size(max = 25, message = "Valeur trop longue pour le prenom : 25 car. maxi")
+	private String prenon;
+
+	@NotBlank(message = "Le nom  doit être renseigné")
+	@Size(max = 25, message = "Valeur trop longue pour le nom : 25 car. maxi")
+	private String nom;
+
+	@NotNull(message = "La credit est obligatoire")
+	private Integer credit;
+
+	private List<String> roles = new ArrayList<>();
+
 	// Constructeurs
-	
+
 	public Compte() {
 	}
-	
-	public Compte(Integer id, String pseudo, String motDePasse, String email) {
+
+	public Compte(Integer id, String pseudo, String motDePasse, String email, String prenon, String nom, Integer credit) {
 		super();
 		this.id = id;
 		this.pseudo = pseudo;
 		this.motDePasse = motDePasse;
 		this.email = email;
+		this.prenon = prenon;
+		this.nom = nom;
+		this.credit = credit;
 	}
-
 	
 	// Getters & setters
+
+	public String getPrenon() {
+		return prenon;
+	}
+
+	public void setPrenon(String prenon) {
+		this.prenon = prenon;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Integer getCredit() {
+		return credit;
+	}
+
+	public void setCredit(Integer credit) {
+		this.credit = credit;
+	}
 
 	public Integer getId() {
 		return id;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -72,11 +108,11 @@ public class Compte implements Serializable  {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -89,12 +125,10 @@ public class Compte implements Serializable  {
 		this.roles = roles;
 	}
 
-	
-	public boolean isInRole( String role ) {
-		return roles.contains( role );
+	public boolean isInRole(String role) {
+		return roles.contains(role);
 	}
 
-	
 	// hashCode() & equals()
 
 	@Override
@@ -113,5 +147,5 @@ public class Compte implements Serializable  {
 		var other = (Compte) obj;
 		return Objects.equals(id, other.id);
 	}
-	
+
 }
