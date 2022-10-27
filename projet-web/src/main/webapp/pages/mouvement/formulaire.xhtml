@@ -69,6 +69,23 @@
 						</h:selectManyCheckbox> <h:message for="roles" errorClass="error" /></td>
 				</tr>
 			</table>
+			<h:dataTable styleClass="liste" value="#{modelMouvement.liste}"
+				var="item" rowClasses="impair, pair" columnClasses="left">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id" />
+					</f:facet>
+				#{item.id}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Somme" />
+					</f:facet>
+				#{item.somme}
+			</h:column>
+			</h:dataTable>
+
 			<br />
 			<h:commandButton value="Valider"
 				action="#{modelCompte.validerMiseAJour()}" />

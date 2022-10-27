@@ -32,7 +32,7 @@ public class Compte implements Serializable {
 
 	@NotBlank(message = "Le prenom doit être renseigné")
 	@Size(max = 25, message = "Valeur trop longue pour le prenom : 25 car. maxi")
-	private String prenon;
+	private String prenom;
 
 	@NotBlank(message = "Le nom  doit être renseigné")
 	@Size(max = 25, message = "Valeur trop longue pour le nom : 25 car. maxi")
@@ -44,29 +44,29 @@ public class Compte implements Serializable {
 	private List<String> roles = new ArrayList<>();
 
 	// Constructeurs
-
 	public Compte() {
 	}
 
-	public Compte(Integer id, String pseudo, String motDePasse, String email, String prenon, String nom, Integer credit) {
+	public Compte(Integer id, String pseudo, String motDePasse, String email, String prenom, String nom,
+			Integer credit) {
 		super();
 		this.id = id;
 		this.pseudo = pseudo;
 		this.motDePasse = motDePasse;
 		this.email = email;
-		this.prenon = prenon;
+		this.prenom = prenom;
 		this.nom = nom;
 		this.credit = credit;
 	}
-	
+
 	// Getters & setters
 
-	public String getPrenon() {
-		return prenon;
+	public String getPrenom() {
+		return prenom;
 	}
 
-	public void setPrenon(String prenon) {
-		this.prenon = prenon;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	public String getNom() {
